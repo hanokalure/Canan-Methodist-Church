@@ -1,0 +1,2058 @@
+body {
+    padding-top: 80px; 
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Base Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    height: 100px;
+    z-index: 100;
+}
+
+.nav-left img {
+    width: 120px; 
+    height: auto;
+    display: block;
+}
+
+.nav-right a {
+    margin-left: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative; /* Needed for the pseudo-element */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Add thick underline on hover using ::after */
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust the distance of the line from the text */
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    background-color: black; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth width expansion on hover */
+}
+
+/* On hover, expand the underline */
+.nav-right a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+/* Change the link color on hover if needed */
+.nav-right a:hover {
+    color: black; /* You can change this to a different hover color if needed */
+}
+
+.nav-left {
+    padding-left: 200px;
+}
+
+.nav-right {
+    display: flex;
+    padding-right: 320px;
+    gap: 40px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .nav-left {
+        padding-left: 100px; /* Adjust padding for medium screens */
+    }
+
+    .nav-right {
+        padding-right: 100px; /* Adjust padding for medium screens */
+        gap: 20px; /* Reduce gap between items */
+    }
+
+    .nav-right a {
+        margin-left: 15px; /* Reduce margin for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto; /* Adjust height for small screens */
+        padding: 10px 0; /* Adjust padding */
+    }
+
+    .nav-left {
+        padding-left: 0; /* Remove left padding */
+        text-align: center; /* Center content */
+    }
+
+    .nav-right {
+        display: flex;
+        flex-direction: column;
+        padding-right: 0; /* Remove right padding */
+        gap: 10px; /* Reduce gap between items */
+        margin-top: 10px; /* Space between logo and links */
+    }
+
+    .nav-right a {
+        margin-left: 0; /* Remove left margin */
+        font-size: 18px; /* Adjust font size for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-left img {
+        width: 100px; /* Adjust logo size for very small screens */
+    }
+
+    .nav-right a {
+        font-size: 16px; /* Further reduce font size if needed */
+    }
+}
+
+
+/* Base Hero Section Styling */
+.hero-section {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden; /* To contain the blur effect */
+}
+
+/* Image styling */
+.hero-section img {
+    width: 100%;    
+    height: auto; /* Adjust height to maintain aspect ratio */
+    display: block;
+    filter: blur(6px);
+    /* Ensure the image covers the section properly */
+    object-fit: cover;
+}
+
+/* Black overlay on image */
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+/* Text within hero section */
+.hero-section .welcome-heading {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem; /* Adjust as needed */
+}
+
+.hero-section .overlay-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+.hero-section .vision, .hero-section .mission {
+    margin: 0 auto;
+    max-width: 600px; /* Adjust based on design needs */
+}
+
+.hero-section .custom-heading {
+    font-size: 1.5rem; /* Adjust as needed */
+    margin-bottom: 1rem;
+}
+
+.hero-section .custom-font {
+    font-size: 1rem; /* Adjust as needed */
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section .welcome-heading {
+        font-size: 1.5rem; /* Adjust as needed */
+        padding: 1rem;
+    }
+
+    .hero-section .custom-heading {
+        font-size: 1.25rem; /* Adjust as needed */
+    }
+
+    .hero-section .custom-font {
+        font-size: 0.875rem; /* Adjust as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section .welcome-heading {
+        font-size: 1.25rem; /* Adjust as needed */
+        padding: 0.5rem;
+    }
+
+    .hero-section .custom-heading {
+        font-size: 1rem; /* Adjust as needed */
+    }
+
+    .hero-section .custom-font {
+        font-size: 0.75rem; /* Adjust as needed */
+    }
+}
+
+
+/* Welcome heading styling */
+.welcome-heading {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #F3EFF5;
+    font-size: 56px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Overlay text flexbox layout */
+.overlay-text {
+    display: flex;
+    justify-content: space-between; /* Vision to left, Mission to right */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 80%; /* Adjust width for proper spacing */
+    z-index: 2;
+    padding: 20px;
+    gap: 50px; /* Adjust space between vision and mission */
+}
+
+/* Styling for headings */
+.custom-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; 
+    font-size: 25px;
+    color: #F3EFF5;
+    position: relative; /* Required for the ::after pseudo-element */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+.custom-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust distance from the text */
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+/* On hover, show the underline */
+.custom-heading:hover::after {
+    width: 100%; /* Expand the underline to full width */
+}
+
+/* Styling for paragraphs */
+.custom-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; 
+    font-size: 19px;
+    color: white;
+    text-align: center; /* Align text normally */
+    line-height: 1.6; /* Set line height for better readability */
+}
+
+/* Flex item: Vision */
+.vision {
+    flex: 1;
+    text-align: center;
+}
+
+.vision h2 {
+    font-size: 30px;
+}
+
+.vision p {
+    font-size: 20px;
+}
+
+.mission h2 {
+    font-size: 30px;
+}
+
+/* Flex item: Mission */
+.mission {
+    flex: 1;
+    text-align: center;
+}
+
+.mission p {
+    font-size: 20px;
+}
+
+/* Button styles */
+.hero-section .btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent background */
+    color: #F3EFF5; /* Light text color */
+    padding: 10px 20px;
+    margin-top: 20px; /* Space between button and paragraph */
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    border: 2px solid #F3EFF5; /* Solid border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.hero-section .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background on hover */
+    color: white; /* Change text color on hover */
+    border-color: white; /* Change border color on hover */
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .welcome-heading {
+        font-size: 45px; /* Adjust font size for medium screens */
+    }
+
+    .overlay-text {
+        flex-direction: column;
+        gap: 20px; /* Reduce gap between vision and mission */
+        width: 90%; /* Adjust width for better spacing on medium screens */
+    }
+
+    .hero-section img {
+        height: 500px; /* Adjust height for medium screens */
+    }
+
+    .hero-section .btn {
+        font-size: 20px; /* Adjust font size for medium screens */
+        padding: 8px 16px; /* Adjust padding for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-heading {
+        font-size: 35px; /* Adjust font size for small screens */
+        top: 20%; /* Adjust positioning */
+    }
+
+    .overlay-text {
+        flex-direction: column;
+        align-items: center; /* Center text on small screens */
+        width: 90%; /* Adjust width */
+        gap: 15px; /* Reduce gap */
+        top: 60%; /* Adjust positioning */
+    }
+
+    .hero-section img {
+        height: 400px; /* Adjust height for small screens */
+    }
+
+    .hero-section .btn {
+        font-size: 18px; /* Adjust font size */
+        padding: 8px 16px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-heading {
+        font-size: 28px; /* Further adjust font size for very small screens */
+    }
+
+    .overlay-text {
+        width: 100%; /* Full width on very small screens */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .hero-section img {
+        height: 300px; /* Adjust height for very small screens */
+    }
+
+    .hero-section .btn {
+        font-size: 16px; /* Further adjust font size */
+        padding: 6px 12px; /* Adjust padding */
+    }
+}
+
+
+/* Base Styling */
+.history {
+    padding: 40px;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.section-title {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 20%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+.history-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.history-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+    transform: translateX(100px); /* Start position off-screen */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Animation triggered when in viewport */
+.history-card.show {
+    opacity: 1;
+    transform: translateX(0); /* End position */
+}
+
+.card-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.history-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.history-card ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.history-card ul li {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: 35px; /* Adjust font size for medium screens */
+        margin-top: 40px; /* Adjust margins */
+        margin-bottom: 20px;
+    }
+
+    .history-content {
+        gap: 15px; /* Reduce gap for medium screens */
+    }
+
+    .history-card {
+        padding: 15px; /* Reduce padding for medium screens */
+    }
+
+    .card-title {
+        font-size: 24px; /* Adjust font size */
+    }
+
+    .history-card p,
+    .history-card ul li {
+        font-size: 16px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 28px; /* Adjust font size for small screens */
+        margin-top: 30px; /* Adjust margins */
+        margin-bottom: 15px;
+    }
+
+    .history-content {
+        gap: 10px; /* Reduce gap for small screens */
+    }
+
+    .history-card {
+        padding: 10px; /* Reduce padding for small screens */
+    }
+
+    .card-title {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .history-card p,
+    .history-card ul li {
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px; /* Further reduce font size for very small screens */
+        margin-top: 20px; /* Adjust margins */
+        margin-bottom: 10px;
+    }
+
+    .history-content {
+        gap: 5px; /* Reduce gap for very small screens */
+    }
+
+    .history-card {
+        padding: 8px; /* Reduce padding */
+    }
+
+    .card-title {
+        font-size: 18px; /* Adjust font size */
+    }
+
+    .history-card p,
+    .history-card ul li {
+        font-size: 12px; /* Adjust font size */
+    }
+}
+
+
+/* Base Styling */
+.pastor-section {
+    padding: 40px;
+    background-color: white;
+    text-align: center;
+}
+
+.pastor-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pastor-section h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.pastor-section h2::after {
+    content: '';
+    display: block;
+    width: 15%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+.pastor-description {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; 
+    font-size: 19px;
+    color: black;
+    text-align: center; /* Align text normally */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Styling for the pastor card */
+.pastor-card {
+    display: inline-block;
+    background-color: #fff;
+    border: 2px solid #ccc; /* Thin border around the card */
+    border-radius: 5px;
+    text-align: center;
+    width: 400px; /* Default width */
+    padding: 10px; /* Padding */
+    margin: 10px; /* Margin for spacing */
+}
+
+.pastor-image {
+    width: 100%;
+    height: auto;
+}
+
+.pastor-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    color: black;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .pastor-heading {
+        font-size: 30px; /* Adjust font size for medium screens */
+    }
+
+    .pastor-section h2 {
+        font-size: 35px; /* Adjust font size for medium screens */
+    }
+
+    .pastor-description {
+        font-size: 17px; /* Adjust font size for medium screens */
+    }
+
+    .pastor-card {
+        width: 300px; /* Adjust width for medium screens */
+        padding: 15px; /* Adjust padding */
+        margin: 10px; /* Margin for spacing */
+    }
+
+    .pastor-name {
+        font-size: 22px; /* Adjust font size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .pastor-heading {
+        font-size: 26px; /* Adjust font size for small screens */
+    }
+
+    .pastor-section h2 {
+        font-size: 30px; /* Adjust font size for small screens */
+    }
+
+    .pastor-description {
+        font-size: 15px; /* Adjust font size for small screens */
+    }
+
+    .pastor-card {
+        width: 100%; /* Full width on small screens */
+        max-width: 350px; /* Max width to avoid too large cards */
+        padding: 10px; /* Adjust padding */
+        margin: 10px 0; /* Margin for spacing */
+    }
+
+    .pastor-name {
+        font-size: 20px; /* Adjust font size for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .pastor-heading {
+        font-size: 22px; /* Further adjust font size for very small screens */
+    }
+
+    .pastor-section h2 {
+        font-size: 26px; /* Further adjust font size for very small screens */
+    }
+
+    .pastor-description {
+        font-size: 14px; /* Further adjust font size for very small screens */
+    }
+
+    .pastor-card {
+        width: 100%; /* Full width on very small screens */
+        max-width: 300px; /* Max width to avoid too large cards */
+        padding: 10px; /* Adjust padding */
+        margin: 10px 0; /* Margin for spacing */
+    }
+
+    .pastor-name {
+        font-size: 18px; /* Further adjust font size for very small screens */
+    }
+}
+
+/* Base Styling */
+.worship {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #6190A2;
+    padding: 150px;
+}
+
+.worship h3 {
+    color: #e4e14d;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; 
+    font-size: 35px;
+}
+
+.worship p {
+    color: white;
+}
+
+.but .btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent background */
+    color: white; /* Light text color */
+    padding: 10px 20px;
+    margin-top: 20px; /* Space between button and paragraph */
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    border: 2px solid white; /* Solid border */
+    border-radius: 3px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.but .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background on hover */
+    color: white; /* Change text color on hover */
+    border-color: white; /* Change border color on hover */
+}
+
+/* ministry */
+/* Main container for the boxes */
+.main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 20px; /* Add some space between the boxes */
+    padding: 20px;
+    width: 100%;
+    height: auto;   
+}
+
+/* Style for each box div */
+.box {
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    width: 23%; /* Each box takes about 23% of the width for equal spacing */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+}
+
+/* Image styles */
+.box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 0; /* No padding for images as requested */
+}
+
+/* Paragraph text */
+.box p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Button styles */
+.learn-more-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid black;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .worship {
+        flex-direction: column; /* Stack items vertically on medium screens */
+        padding: 80px; /* Reduce padding */
+    }
+
+    .worship h3 {
+        font-size: 30px; /* Adjust font size for medium screens */
+    }
+
+    .but .btn {
+        font-size: 22px; /* Adjust button font size */
+    }
+
+    .main-div {
+        flex-direction: column; /* Stack boxes vertically on medium screens */
+        align-items: center; /* Center-align boxes */
+    }
+
+    .box {
+        width: 80%; /* Adjust width for medium screens */
+        max-width: 500px; /* Ensure boxes don’t get too wide */
+    }
+
+    .box p {
+        font-size: 14px; /* Adjust font size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .worship {
+        padding: 60px; /* Further reduce padding */
+    }
+
+    .worship h3 {
+        font-size: 26px; /* Adjust font size for small screens */
+    }
+
+    .but .btn {
+        font-size: 20px; /* Adjust button font size */
+    }
+
+    .box {
+        width: 100%; /* Full width on small screens */
+        max-width: 90%; /* Ensure boxes don’t get too wide */
+    }
+
+    .box p {
+        font-size: 12px; /* Adjust font size for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .worship {
+        padding: 40px; /* Further reduce padding */
+    }
+
+    .worship h3 {
+        font-size: 22px; /* Further reduce font size for very small screens */
+    }
+
+    .but .btn {
+        font-size: 18px; /* Adjust button font size */
+    }
+
+    .box {
+        width: 100%; /* Full width on very small screens */
+        max-width: 100%; /* Ensure boxes take full width */
+        margin-bottom: 20px; /* Add spacing between stacked boxes */
+    }
+
+    .box p {
+        font-size: 11px; /* Further reduce font size */
+    }
+}
+
+/* Base Styling */
+.ministry {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 150px;
+}
+
+.ministry h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.ministry h2::after {
+    content: '';
+    display: block;
+    width: 6%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .ministry h2 {
+        font-size: 36px; /* Adjust font size for medium screens */
+        margin-top: 80px; /* Reduce margin-top for medium screens */
+        margin-bottom: 20px; /* Reduce margin-bottom for medium screens */
+    }
+
+    .ministry h2::after {
+        width: 8%; /* Slightly wider underline on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .ministry h2 {
+        font-size: 30px; /* Adjust font size for small screens */
+        margin-top: 60px; /* Further reduce margin-top for small screens */
+        margin-bottom: 15px; /* Further reduce margin-bottom for small screens */
+    }
+
+    .ministry h2::after {
+        width: 10%; /* Slightly wider underline on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .ministry h2 {
+        font-size: 24px; /* Further reduce font size for very small screens */
+        margin-top: 40px; /* Further reduce margin-top for very small screens */
+        margin-bottom: 10px; /* Further reduce margin-bottom for very small screens */
+    }
+
+    .ministry h2::after {
+        width: 12%; /* Wider underline on very small screens */
+    }
+}
+
+/* Base Styling */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure popup is on top */
+}
+
+/* Popup content */
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    height: auto; /* Allow height to adjust based on content */
+    max-height: 90%; /* Ensure popup doesn't exceed viewport height */
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto; /* Add vertical scroll */
+    overflow-x: hidden; /* Hide horizontal scroll */
+}
+
+/* Close button */
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent; /* Ensures no background color */
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    box-shadow: none; /* Removes any shadow */
+    outline: none; /* Removes outline on focus */
+}
+
+/* .popup-close-btn:hover {
+    background-color: #e60000;
+} */
+
+/* Image container inside popup */
+.popup-image-container {
+    text-align: center;
+}
+
+.popup-image-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.popup-image-container h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.popup-image-container p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .popup-content {
+        max-width: 80%; /* Adjust width for medium screens */
+        padding: 15px; /* Reduce padding for medium screens */
+    }
+
+    .popup-close-btn {
+        font-size: 18px; /* Adjust font size for medium screens */
+        height: 40px;
+        width: 40px;
+    }
+
+    .popup-image-container h3 {
+        font-size: 16px; /* Adjust font size for medium screens */
+    }
+
+    .popup-image-container p {
+        font-size: 14px; /* Adjust font size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .popup-content {
+        max-width: 90%; /* Adjust width for small screens */
+        padding: 10px; /* Reduce padding for small screens */
+    }
+
+    .popup-close-btn {
+        font-size: 16px; /* Adjust font size for small screens */
+        height: 35px;
+        width: 35px;
+    }
+
+    .popup-image-container h3 {
+        font-size: 14px; /* Adjust font size for small screens */
+    }
+
+    .popup-image-container p {
+        font-size: 12px; /* Adjust font size for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        max-width: 95%; /* Max width for very small screens */
+        padding: 8px; /* Further reduce padding for very small screens */
+    }
+
+    .popup-close-btn {
+        font-size: 14px; /* Further adjust font size for very small screens */
+        height: 30px;
+        width: 30px;
+    }
+
+    .popup-image-container h3 {
+        font-size: 12px; /* Further adjust font size for very small screens */
+    }
+
+    .popup-image-container p {
+        font-size: 10px; /* Further adjust font size for very small screens */
+    }
+}
+
+
+/* Base Styling */
+.social-media-section {
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 300px; */
+}
+
+/* Centered heading */
+.social-media-section h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.social-media-section h2::after {
+    content: '';
+    display: block;
+    width: 15%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+/* Container for the social media boxes arranged in a row */
+.social-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0 10px; /* Add padding around the edges */
+}
+
+/* Style for each social media box */
+.social-box {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 250px; /* Adjust width */
+    min-width: 200px; /* Ensure boxes don't shrink too much */
+}
+
+/* Facebook box */
+.social-box.facebook {
+    background-color: #3b5998; /* Facebook Blue */
+}
+
+/* YouTube box */
+.social-box.youtube {
+    background-color: #ff0000; /* YouTube Red */
+}
+
+/* WhatsApp box */
+.social-box.whatsapp {
+    background-color: #25d366; /* WhatsApp Green */
+}
+
+/* Instagram box */
+.social-box.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+/* Hover effect for each social media box */
+.social-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Social media icons */
+.social-box i {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+/* Social media text */
+.social-box h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Social links */
+.social-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .social-media-section h2 {
+        font-size: 36px; /* Adjust font size for medium screens */
+    }
+
+    .social-boxes {
+        flex-wrap: wrap; /* Allow wrapping on medium screens */
+        justify-content: center; /* Center items */
+    }
+
+    .social-box {
+        max-width: 220px; /* Adjust width for medium screens */
+        min-width: 180px; /* Ensure boxes don't shrink too much */
+    }
+}
+
+@media (max-width: 768px) {
+    .social-media-section h2 {
+        font-size: 30px; /* Adjust font size for small screens */
+    }
+
+    .social-boxes {
+        flex-direction: column; /* Stack boxes vertically on small screens */
+        align-items: center; /* Center items */
+        gap: 15px; /* Adjust spacing between boxes */
+    }
+
+    .social-box {
+        max-width: 300px; /* Increase width to fit better on small screens */
+        min-width: unset; /* Remove min-width for better flexibility */
+        padding: 15px; /* Reduce padding for small screens */
+    }
+
+    .social-box i {
+        font-size: 40px; /* Adjust icon size for small screens */
+    }
+
+    .social-box h3 {
+        font-size: 16px; /* Adjust font size for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .social-media-section h2 {
+        font-size: 24px; /* Further reduce font size for very small screens */
+    }
+
+    .social-box {
+        max-width: 280px; /* Adjust width for very small screens */
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
+
+    .social-box i {
+        font-size: 36px; /* Further adjust icon size for very small screens */
+    }
+
+    .social-box h3 {
+        font-size: 14px; /* Further reduce font size for very small screens */
+    }
+}
+
+/* Base Styling */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    /* margin-top: 150px; */
+}
+
+.contact-section h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.contact-section h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.contact-form {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .contact-section h2 {
+        font-size: 36px; /* Adjust font size for medium screens */
+    }
+
+    .contact-form {
+        padding: 20px; /* Reduce padding for medium screens */
+    }
+
+    .contact-form button {
+        padding: 12px; /* Adjust padding for button on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section h2 {
+        font-size: 30px; /* Adjust font size for small screens */
+    }
+
+    .contact-form {
+        padding: 15px; /* Further reduce padding for small screens */
+    }
+
+    .contact-form button {
+        padding: 10px; /* Further adjust padding for button on small screens */
+        font-size: 14px; /* Adjust font size for button on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section h2 {
+        font-size: 24px; /* Further reduce font size for very small screens */
+    }
+
+    .contact-form {
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
+
+    .contact-form button {
+        padding: 8px; /* Further adjust padding for button on very small screens */
+        font-size: 12px; /* Further adjust font size for button on very small screens */
+    }
+}
+
+
+.map-container {
+    position: relative;
+    text-align: center;
+    width: 100%; /* Full width of its container */
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 30px auto; /* Centered with margin */
+    padding: 0 10px; /* Padding for smaller screens */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.map-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* Aspect ratio for 16:9 (56.25% = 9 / 16 * 100) */
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .map-container {
+        padding: 0 5px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        padding: 0 2px; /* Further adjust padding for very small screens */
+    }
+}
+
+
+.footer {
+    background-color: #2b2f36; /* Dark background color */
+    color: #ccc; /* Light text color */
+    text-align: center;
+    padding: 20px 10px; /* Adjusted padding for smaller screens */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.footer .nav-links {
+    margin: 20px 0;
+}
+
+.footer .nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer .nav-links a:hover {
+    color: #fff;
+}
+
+/* Social media icon styling */
+.footer .social {
+    margin: 10px 0;
+}
+
+.footer .social a {
+    color: #ccc;
+    font-size: 30px;
+    text-decoration: none;
+    margin: 0 10px; /* Adjust spacing between icons */
+}
+
+.footer .social a:hover {
+    color: #fff;
+}
+
+/* Service information */
+.footer .services {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer .nav-links a {
+        font-size: 12px; /* Smaller font size for navigation links */
+        margin: 0 5px; /* Reduced margin for smaller screens */
+    }
+
+    .footer .social a {
+        font-size: 24px; /* Slightly smaller icons */
+    }
+
+    .footer .services {
+        font-size: 14px; /* Smaller font size for services */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer .nav-links a {
+        display: block; /* Stack links vertically on very small screens */
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+    }
+
+    .footer .social a {
+        font-size: 20px; /* Further reduce icon size */
+        margin: 0 5px; /* Adjust spacing for small screens */
+    }
+
+    .footer .services {
+        font-size: 12px; /* Smaller font size for services */
+    }
+}
+
+
+.events-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.events-section p {
+    margin-bottom: 12px;
+    font-size: 16px; /* Adjust font size for better readability */
+}
+
+.events-section h2 {
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/* Button styling */
+.events-section .learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding for a better button appearance */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px; /* Font size for button text */
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.events-section .learn-more-btn:hover {
+    transform: translateY(-5px); /* Adjust hover effect for smaller screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .events-section h2 {
+        font-size: 32px; /* Smaller font size for medium screens */
+        margin-top: 20px; /* Adjust top margin */
+        margin-bottom: 20px; /* Adjust bottom margin */
+    }
+
+    .events-section p {
+        font-size: 14px; /* Smaller font size for better readability */
+    }
+
+    .events-section .learn-more-btn {
+        font-size: 14px; /* Smaller font size for button */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .events-section h2 {
+        font-size: 24px; /* Smaller font size for small screens */
+        margin-top: 15px; /* Adjust top margin */
+        margin-bottom: 15px; /* Adjust bottom margin */
+    }
+
+    .events-section p {
+        font-size: 12px; /* Further reduce font size */
+        margin-bottom: 10px; /* Adjust bottom margin */
+    }
+
+    .events-section .learn-more-btn {
+        font-size: 12px; /* Further reduce button font size */
+        padding: 6px 12px; /* Adjust padding for very small screens */
+    }
+}
+
+.worship_message {
+    background-color: #6190A2;
+    padding: 40px; /* Adjust padding for smaller screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.worship-heading {
+    margin-bottom: 30px; /* Adjust for better spacing */
+}
+
+.worship-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    gap: 20px; /* Reduce gap on smaller screens */
+}
+
+.worship-content .wl,
+.worship-content .wm,
+.worship-content .wr {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.worship-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 20px; /* Adjust font size */
+    color: #F3EFF5;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.worship-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.worship-heading .sp {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 24px; /* Adjust font size */
+    color: black;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-right: 20px; /* Adjust margin for better spacing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .worship_message {
+        padding: 30px; /* Adjust padding */
+    }
+
+    .worship-content {
+        flex-direction: column; /* Stack content vertically on tablets */
+        gap: 15px; /* Reduce gap */
+    }
+
+    .worship-content h2 {
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .worship-heading .sp {
+        font-size: 22px; /* Reduce font size */
+        margin-right: 15px; /* Adjust margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .worship_message {
+        padding: 20px; /* Further adjust padding */
+    }
+
+    .worship-content h2 {
+        font-size: 16px; /* Further reduce font size */
+    }
+
+    .worship-heading .sp {
+        font-size: 18px; /* Further reduce font size */
+        margin-right: 10px; /* Adjust margin */
+    }
+}
+
+
+.worship_message {
+    background-color: #6190A2;
+    padding: 40px; /* Default padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Ensures padding is included in element's width and height */
+}
+
+.worship-heading {
+    margin-bottom: 30px; /* Default margin */
+    text-align: center; /* Ensure text is centered */
+}
+
+.worship-content {
+    display: flex;
+    flex-direction: row; /* Default to row layout */
+    gap: 20px; /* Default gap */
+    width: 100%;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: center; /* Center items horizontally */
+}
+
+.worship-content .wl,
+.worship-content .wm,
+.worship-content .wr {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1 200px; /* Ensures items are flexible and have a minimum width */
+    max-width: 300px; /* Limits the maximum width of each item */
+    margin: 10px; /* Adds some margin around each item */
+}
+
+.worship-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 20px; /* Default font size */
+    color: #F3EFF5;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.worship-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.worship-heading .sp {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 24px; /* Default font size */
+    color: black;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-right: 20px; /* Default margin */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .worship_message {
+        padding: 30px; /* Reduced padding for tablets */
+    }
+
+    .worship-content {
+        flex-direction: column; /* Stack content vertically on tablets */
+        gap: 15px; /* Reduced gap */
+    }
+
+    .worship-content .wl,
+    .worship-content .wm,
+    .worship-content .wr {
+        max-width: 100%; /* Allow full-width items on smaller screens */
+        margin: 10px 0; /* Adjust margin for stacked layout */
+    }
+
+    .worship-content h2 {
+        font-size: 18px; /* Reduced font size */
+    }
+
+    .worship-heading .sp {
+        font-size: 22px; /* Reduced font size */
+        margin-right: 15px; /* Adjusted margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .worship_message {
+        padding: 20px; /* Further reduced padding for small screens */
+    }
+
+    .worship-content h2 {
+        font-size: 16px; /* Further reduced font size */
+    }
+
+    .worship-heading .sp {
+        font-size: 18px; /* Further reduced font size */
+        margin-right: 10px; /* Adjusted margin */
+    }
+}
+
+.worship_message {
+    background-color: #6190A2;
+    padding: 40px; /* Default padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Ensures padding is included in element's width and height */
+}
+
+.worship-heading {
+    margin-bottom: 30px; /* Default margin */
+    text-align: center; /* Ensure text is centered */
+}
+
+.worship-content {
+    display: flex;
+    flex-direction: row; /* Default to row layout */
+    gap: 20px; /* Default gap */
+    width: 100%;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: center; /* Center items horizontally */
+}
+
+.worship-content .wl,
+.worship-content .wm,
+.worship-content .wr {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1 200px; /* Ensures items are flexible and have a minimum width */
+    max-width: 300px; /* Limits the maximum width of each item */
+    margin: 10px; /* Adds some margin around each item */
+}
+
+.worship-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 20px; /* Default font size */
+    color: #F3EFF5;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.worship-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.worship-heading .sp {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 24px; /* Default font size */
+    color: black;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-right: 20px; /* Default margin */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .worship_message {
+        padding: 30px; /* Reduced padding for tablets */
+    }
+
+    .worship-content {
+        flex-direction: column; /* Stack content vertically on tablets */
+        gap: 15px; /* Reduced gap */
+    }
+
+    .worship-content .wl,
+    .worship-content .wm,
+    .worship-content .wr {
+        max-width: 100%; /* Allow full-width items on smaller screens */
+        margin: 10px 0; /* Adjust margin for stacked layout */
+    }
+
+    .worship-content h2 {
+        font-size: 18px; /* Reduced font size */
+    }
+
+    .worship-heading .sp {
+        font-size: 22px; /* Reduced font size */
+        margin-right: 15px; /* Adjusted margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .worship_message {
+        padding: 20px; /* Further reduced padding for small screens */
+    }
+
+    .worship-content h2 {
+        font-size: 16px; /* Further reduced font size */
+    }
+
+    .worship-heading .sp {
+        font-size: 18px; /* Further reduced font size */
+        margin-right: 10px; /* Adjusted margin */
+    }
+}
+
+.committee-main {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+    overflow: hidden;
+    width: 100%;
+    gap: 40px;
+    transition: transform 1s ease;
+    justify-content: space-around;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.committee-item {
+    width: 200px; /* Default fixed width */
+    height: 300px; /* Default fixed height */
+    box-sizing: border-box;
+}
+
+.committee-item img {
+    display: block;
+    width: 100%;
+    height: 70%; /* Maintain image height proportion */
+    margin: 0;
+    padding: 0;
+    object-fit: cover; /* Maintain aspect ratio and cover the div */
+}
+
+.committee-item h2 {
+    text-align: center;
+    margin: 0;
+    padding: 10px 0; /* Space between image and heading */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .committee-item {
+        width: 180px; /* Slightly reduced width for larger tablets */
+        height: 270px; /* Slightly reduced height */
+    }
+}
+
+@media (max-width: 768px) {
+    .committee-item {
+        width: 150px; /* Further reduced width for tablets */
+        height: 220px; /* Further reduced height */
+    }
+}
+
+@media (max-width: 480px) {
+    .committee-item {
+        width: 120px; /* Further reduced width for mobile devices */
+        height: 180px; /* Further reduced height */
+    }
+
+    .committee-main {
+        gap: 20px; /* Reduced gap for smaller screens */
+        margin-top: 50px; /* Reduced margin-top */
+        margin-bottom: 50px; /* Reduced margin-bottom */
+    }
+}
+
+.puppy {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 90vh; /* Use viewport height for better responsiveness */
+    width: 90vw; /* Use viewport width for better responsiveness */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1000;
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+.puppy-body {
+    max-height: 80vh; /* Ensure scroll is contained within the modal */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .puppy {
+        width: 85vw; /* Adjust width for tablets */
+        max-height: 80vh; /* Adjust height */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .puppy {
+        width: 95vw; /* Further adjust width for mobile devices */
+        max-height: 80vh; /* Adjust height */
+        padding: 10px; /* Adjust padding for mobile screens */
+    }
+}
+
+#puppy-events {
+    display: none;
+}
+
+#puppy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+
+.full-width-background {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Default height */
+    overflow: hidden;
+    margin-top: 120px; /* Margin on top */
+}
+
+.full-width-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay p {
+    color: white;
+    font-size: 80px; /* Default font size */
+    text-align: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .full-width-background {
+        height: 250px; /* Adjust height for tablets */
+        margin-top: 80px; /* Adjust margin for tablets */
+    }
+
+    .overlay p {
+        font-size: 60px; /* Adjust font size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .full-width-background {
+        height: 200px; /* Adjust height for smaller tablets */
+        margin-top: 60px; /* Adjust margin for smaller tablets */
+    }
+
+    .overlay p {
+        font-size: 50px; /* Adjust font size for smaller tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .full-width-background {
+        height: 150px; /* Adjust height for mobile devices */
+        margin-top: 40px; /* Adjust margin for mobile devices */
+    }
+
+    .overlay p {
+        font-size: 40px; /* Adjust font size for mobile devices */
+    }
+}

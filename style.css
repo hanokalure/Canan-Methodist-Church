@@ -1,0 +1,1177 @@
+
+body {
+    padding-top: 80px; 
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    /* padding: 10px 20px; */
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    height: 100px;
+    z-index: 100;
+}
+
+
+.nav-left img {
+    width: 120px; 
+    height: auto;
+    display: block;
+}
+
+
+.nav-right a {
+    margin-left: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative; /* Needed for the pseudo-element */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Add thick underline on hover using ::after */
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust the distance of the line from the text */
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    background-color: black; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth width expansion on hover */
+}
+
+/* On hover, expand the underline */
+.nav-right a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+/* Change the link color on hover if needed */
+.nav-right a:hover {
+    color: black; /* You can change this to a different hover color if needed */
+}
+
+
+.nav-left {
+    padding-left: 150px;
+}
+
+.nav-right {
+    display: flex;
+    padding-right: 320px;
+    gap: 40px;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden; /* To contain the blur effect */
+}
+
+/* Image styling */
+.hero-section img {
+    width: 100%;    
+    height: 800px;
+    display: block;
+    filter: blur(6px);
+}
+
+/* Black overlay on image */
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+/* Flexbox layout for the text */
+
+.welcome-heading {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #F3EFF5;
+    font-size: 56px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Flexbox layout for the text */
+.overlay-text {
+    display: flex;
+    justify-content: space-between; /* Vision to left, Mission to right */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 80%; /* Adjust width for proper spacing */
+    z-index: 2;
+    padding: 20px;
+    gap: 50px; /* Adjust space between vision and mission */
+}
+
+/* Styling for headings */
+.custom-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; 
+    font-size: 25px;
+    color: #F3EFF5;
+    position: relative; /* Required for the ::after pseudo-element */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+.custom-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust distance from the text */
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+/* On hover, show the underline */
+.custom-heading:hover::after {
+    width: 100%; /* Expand the underline to full width */
+}
+
+/* Styling for paragraphs */
+.custom-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; 
+    font-size: 19px;
+    color: white;
+    text-align: center; /* Align text normally */
+    line-height: 1.6; /* Set line height for better readability */
+}
+
+/* Flex item: Vision */
+.vision {
+    flex: 1;
+    text-align: center;
+}
+
+.vision h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.vision p {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.mission h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+/* Flex item: Mission */
+.mission {
+    flex: 1;
+    text-align: center;
+}
+
+.mission p {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Button styles */
+.hero-section .btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent background */
+    color: #F3EFF5; /* Light text color */
+    padding: 10px 20px;
+    margin-top: 20px; /* Space between button and paragraph */
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    border: 2px solid #F3EFF5; /* Solid border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.hero-section .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background on hover */
+    color: white; /* Change text color on hover */
+    border-color: white; /* Change border color on hover */
+}
+
+
+
+/* About section */
+.history {
+    /* background: linear-gradient(to bottom, #fff, #f0f0f0); */
+    padding: 40px;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.section-title {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.section-title::after{
+    content: '';
+    display: block;
+    width: 20%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+.history-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.history-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+    transform: translateX(100px); /* Start position off-screen */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Animation triggered when in viewport */
+.history-card.show {
+    opacity: 1;
+    transform: translateX(0); /* End position */
+}
+
+.card-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.history-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.history-card ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.history-card ul li {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+}
+
+
+/* Pastor section*/
+/* Styling for the pastor section */
+.pastor-section {
+    padding: 40px;
+    background-color: white;
+    text-align: center;
+}
+
+.pastor-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pastor-section h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.pastor-section h2::after{
+    content: '';
+    display: block;
+    width: 15%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+.pastor-description {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; 
+    font-size: 19px;
+    color: black;
+    text-align: center; /* Align text normally */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Styling for the pastor card */
+.pastor-card {
+    display: inline-block;
+    background-color: #fff;
+    border: 2px solid #ccc; /* Thin border around the card */
+    border-radius: 5px;
+    text-align: center;
+    width: 400px; /* Reduce the width */
+    padding: 10px; /* Reduce the padding */
+}
+
+
+.pastor-image {
+    width: 100%;
+    height: auto;
+    /* border-radius: 10px; */
+}
+
+.pastor-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    color: black;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+/* connect us section */
+.worship {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #6190A2;
+    padding: 150px;
+}
+
+.worship h3 {
+    color: #e4e14d;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; 
+    font-size: 35px;
+}
+
+.worship p{
+    color: white;
+}
+
+.but .btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent background */
+    color: white; /* Light text color */
+    padding: 10px 20px;
+    margin-top: 20px; /* Space between button and paragraph */
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    border: 2px solid white; /* Solid border */
+    border-radius: 3px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.but .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background on hover */
+    color: white; /* Change text color on hover */
+    border-color: white; /* Change border color on hover */
+}
+
+
+/* ministry */
+/* Main container for the boxes */
+.main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 20px; /* Add some space between the boxes */
+    padding: 20px;
+    width: 100%;
+    height: auto;   
+}
+
+/* Style for each box div */
+.box {
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    width: 23%; /* Each box takes about 23% of the width for equal spacing */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    transition: transform 0.3s;
+}
+
+.box:hover{
+    transform: translateY(-10px);
+}
+
+
+/* Image styles */
+.box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 0; /* No padding for images as requested */
+}
+
+/* Paragraph text */
+.box p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Button styles */
+.learn-more-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid black;
+    transition: background-color 0.3s ease;
+}
+
+.ministry {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 150px;
+}
+
+.ministry h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}  
+
+.ministry h2::after{
+    content: '';
+    display: block;
+    width: 6%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+
+/* Popup background overlay */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure popup is on top */
+}
+
+/* Popup content */
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    height: 90%;
+    max-height: 500px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto; /* Add vertical scroll */
+    overflow-x: hidden; /* Hide horizontal scroll */
+}
+
+
+/* Close button */
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent; /* Ensures no background color */
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    box-shadow: none; /* Removes any shadow */
+    outline: none; /* Removes outline on focus */    
+}
+
+/* .popup-close-btn:hover {
+    background-color: #e60000;
+} */
+
+/* Image container inside popup */
+.popup-image-container {
+    text-align: center;
+}
+
+.popup-image-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.popup-image-container h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.popup-image-container p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/*connect*/
+.social-media-section {
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 300px; */
+}
+
+/* Centered heading */
+.social-media-section h2{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.social-media-section h2::after{
+    content: '';
+    display: block;
+    width: 15%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+/* Container for the social media boxes arranged in a row */
+.social-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0 10px; /* Add padding around the edges */
+}
+
+/* Style for each social media box */
+.social-box {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 250px; /* Adjust width */
+    min-width: 200px; /* Ensure boxes don't shrink too much */
+}
+
+/* Facebook box */
+.social-box.facebook {
+    background-color: #3b5998; /* Facebook Blue */
+}
+
+/* YouTube box */
+.social-box.youtube {
+    background-color: #ff0000; /* YouTube Red */
+}
+
+/* WhatsApp box */
+.social-box.whatsapp {
+    background-color: #25d366; /* WhatsApp Green */
+}
+
+/* Instagram box */
+.social-box.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+/* Hover effect for each social media box */
+.social-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Social media icons */
+.social-box i {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+/* Social media text */
+.social-box h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Social links */
+.social-link {
+    color: white;
+    text-decoration: none;
+}
+
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    /* margin-top: 150px; */
+}
+
+.contact-section h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+
+.contact-section h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.contact-form {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+
+.map-container {
+    position: relative;
+    text-align: center;
+    height: 300px; /* Reduced height */
+    width: 80%;    /* Reduced width to 80% of the page */
+    margin: 30px auto;
+}
+iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    background-color: #2b2f36; /* Dark background color */
+    color: #ccc; /* Light text color */
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Footer navigation links */
+.footer .nav-links {
+    margin: 20px 0;
+}
+
+.footer .nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer .nav-links a:hover {
+    color: #fff;
+}
+
+/* Social media icon styling */
+.footer .social {
+    margin: 10px 0;
+}
+
+.footer .social a {
+    color: #ccc;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.footer .social a:hover {
+    color: #fff;
+}
+
+/* Service information */
+.footer .services {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.events-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-section p{
+    margin-bottom: 12px;
+}
+
+.events-section h2 {
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.events-section .learn-more-btn{
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.events-section .learn-more-btn:hover{
+    transform: translateY(-10%);
+}
+
+.word_of_god {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.word_of_god img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+.word_of_god p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Make sure the text is visible */
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+
+.word_of_god .p2{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Make sure the text is visible */
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+.worship_message{
+background-color: #6190A2;
+padding: 80px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.worship-heading{
+    margin-bottom: 50px;
+}
+
+.worship-content {
+    display:flex ;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.worship-content .wl{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.worship-content .wm{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.worship-content .wr{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.worship-content h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; 
+    font-size: 25px;
+    color: #F3EFF5;
+    position: relative; /* Required for the ::after pseudo-element */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+.worship-content a{
+    text-decoration: none;
+    color: black;
+}
+
+.worship-heading .sp{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500; 
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.content-banner-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.content-banner-main img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content-banner-main-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    color: #fff; /* Text color to contrast against the image */
+    text-align: center;
+}
+
+.content-banner-main-l,
+.content-banner-main-m,
+.content-banner-main-r {
+    /* flex: 1;
+    padding: 10px; */
+    height: 100%;
+    width: 100%;
+}
+
+.content-banner-main-l h2,
+.content-banner-main-main-m h2,
+.content-banner-main-r h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 200px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+.content-banner-main-l h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+.content-banner-main-r h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+
+
+
+.content-banner-main-l p,
+.content-banner-main-m p,
+.content-banner-main-r p {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.content-banner-main-m h2{
+    margin-top: 211px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+.content-banner-main-l {
+    background-color: #A8A599BF;
+}
+
+.content-banner-main-m {
+    background-color: #6190A2BF;
+}
+
+.content-banner-main-r {
+    background-color: #434F5BBF;
+}
+
+
+.full-width-background {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    overflow: hidden;
+    margin-top: 120px;
+}
+
+.full-width-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay p {
+    color: white;
+    font-size: 80px; /* Adjust font size as needed */
+    text-align: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+.committee-main {
+    display: flex;
+    /* flex-wrap: wrap; */
+    overflow: hidden;
+    width: 100%;
+    gap: 40px;
+    transition: transform 1s ease;
+    justify-content: space-around;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+  
+.committee-item {
+    width: 200px; /* Set fixed width */
+    height: 300px; /* Set fixed height */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+  
+.committee-item img {
+    display: block;
+    width: 100%;
+    height: 70%; /* Adjust based on image aspect ratio */
+    margin: 0;
+    padding: 0;
+    object-fit: cover; /* Maintain aspect ratio and cover the div */
+}
+  
+.committee-item h2 {
+    text-align: center;
+    margin: 0;
+    padding: 10px 0; /* Space between image and heading */
+}
+  
+
+
+.puppy {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    height: 90%;
+    max-height: 500px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto; /* Add vertical scroll */
+    overflow-x: hidden; /* Hide horizontal scroll */
+    z-index: 1000;
+}
+
+.puppy-body {
+    max-height: 400px; /* Ensure scroll is contained */
+    /* overflow-y: auto; */
+}
+
+#puppy-events {
+    display: none;
+}
+
+#puppy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+/* Default styles for desktop */
+@media (min-width: 1024px) {
+    /* Your desktop styles here */
+}
+
+/* Override styles for mobile or smaller devices */
+@media (max-width: 1023px) {
+    /* Your mobile styles here */
+}
