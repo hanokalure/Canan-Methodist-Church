@@ -122,22 +122,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let index = 0;
 
     function animateItems() {
-        if (index >= items.length) return;
-        
+        // Reset index to 0 when it reaches the end of the array to loop continuously
+        if (index >= items.length) {
+            index = 0;
+        }
+
         // Add the first 4 items to the visible set
         const visibleItems = items.slice(index, index + 4);
         container.innerHTML = '';
         visibleItems.forEach(item => container.appendChild(item.cloneNode(true)));
-        
+
         // Remove the first item after 3 seconds and add a new one
         setTimeout(() => {
             index++;
-            if (index + 4 <= items.length) {
-                container.innerHTML = '';
-                const newVisibleItems = items.slice(index, index + 4);
-                newVisibleItems.forEach(item => container.appendChild(item.cloneNode(true)));
-            }
-            animateItems();
+            animateItems(); // Keep calling the function recursively
         }, 3000);
     }
     
