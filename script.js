@@ -103,6 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('puppy-overlay').style.display = 'block';
     });
 
+    document.querySelector('.learn-more-btn-1').addEventListener('click', function(event) {
+        event.preventDefault();
+        showPopup('puppy-events');
+        document.getElementById('puppy-overlay').style.display = 'block';
+    });
+
     // Add event listener for the "Events" link in the footer
     document.getElementById('footer-events-link').addEventListener('click', function(event) {
         event.preventDefault();
